@@ -177,15 +177,12 @@
                             margin-bottom: 24px;
                         }
 
-                        // IE10 fix
-                        .logo, .small-note {
-                            -ms-flex: 0 1 auto;
-                        }
+                       
 
                         .logo {
-                            width: 32px;
-                            min-width: 32px;
-                            margin-right: 24px;
+                            width: 20px;
+                            min-width: 15px;
+                            margin-right: 29px;
                         }
 
                         .small-note {
