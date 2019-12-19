@@ -19,27 +19,27 @@
                             <span class="title">DUE DATE</span>
                             <span class="date">dueDate</span>
                         </div>
+    
+                        <div class="info">
+                            <div class="title">title</div>
+                            <div  class="address">address</div>
+                            <div  class="phone">phone</div>
+                            <div  class="email">email</div>
+                            <div  class="website">website</div>
+                        </div>
+                    </div>
+
+                    <div class="issuer mat-accent-bg" fxLayout="row" fxLayoutAlign="start center">
+                        <div class="logo">
+                            <img src="../../../assets/Images/fuse.svg">
+                        </div>
 
                         <div class="info">
                             <div class="title">title</div>
                             <div  class="address">address</div>
                             <div  class="phone">phone</div>
                             <div  class="email">email</div>
-                            <div   class="website">website</div>
-                        </div>
-                    </div>
-
-                    <div class="issuer mat-accent-bg" fxLayout="row" fxLayoutAlign="start center">
-                        <div class="logo" style="background-color: rgb(196, 225, 65);">
-                            <!-- <img src="assets/images/logos/fuse.svg"> -->
-                        </div>
-
-                        <div class="info">
-                            <div class="title">title</div>
-                            <div *ngIf="invoice?.from.address" class="address">address</div>
-                            <div *ngIf="invoice?.from.phone" class="phone">phone</div>
-                            <div *ngIf="invoice?.from.email" class="email">email</div>
-                            <div *ngIf="invoice?.from.website" class="website">website</div>
+                            <div  class="website">website</div>
                         </div>
                     </div>
                 </div>
@@ -57,13 +57,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr >
                             <td>
                                 <div class="title">
+                                    <!-- {{service.title}} -->
                                     title
                                 </div>
                             </td>
                             <td>
+                                <!-- {{service.unit}} -->
                                 unit
                             </td>
                             <td class="text-right">
@@ -71,37 +73,37 @@
                                 <!-- {{service.unitPrice | currency:'USD':'symbol'}} -->
                             </td>
                             <td class="text-right">
-                                quantity
                                 <!-- {{service.quantity}} -->
+                                quantity
                             </td>
                             <td class="text-right">
-                                total
                                 <!-- {{service.total | currency:'USD':'symbol'}} -->
+                                total
                             </td>
                         </tr>
                         <!-- Double the invoice data for demo purposes -->
                         <tr>
                             <td>
                                 <div class="title">
-                                    title
                                     <!-- {{service.title}} -->
+                                    title
                                 </div>
                             </td>
                             <td>
-                                unit
                                 <!-- {{service.unit}} -->
+                                unit
                             </td>
                             <td class="text-right">
-                                unitPrice
                                 <!-- {{service.unitPrice | currency:'USD':'symbol'}} -->
+                                unitPrice
                             </td>
                             <td class="text-right">
-                                quantity
                                 <!-- {{service.quantity}} -->
+                                quantity
                             </td>
                             <td class="text-right">
-                                total
                                 <!-- {{service.total | currency:'USD':'symbol'}} -->
+                                total
                             </td>
                         </tr>
                     </tbody>
@@ -111,24 +113,19 @@
                     <tbody>
                         <tr class="subtotal">
                             <td>SUBTOTAL</td>
-                            
                             <!-- <td>{{invoice.subtotal | currency:'USD':'symbol'}}</td> -->
-                            <!-- <td>subtotal</td> -->
                         </tr>
                         <tr class="tax">
                             <td>TAX</td>
                             <!-- <td>{{invoice.tax | currency:'USD':'symbol'}}</td> -->
-                            <!-- <td>subtotal</td> -->
                         </tr>
                         <tr class="discount">
                             <td>DISCOUNT</td>
                             <!-- <td>-{{invoice.discount | currency:'USD':'symbol'}}</td> -->
-                            <td>subtotal</td>
                         </tr>
                         <tr class="total">
                             <td>TOTAL</td>
                             <!-- <td>{{invoice.total | currency:'USD':'symbol'}}</td> -->
-                            <td>TOTAL</td>
                         </tr>
                     </tbody>
                 </table>
@@ -138,7 +135,7 @@
                 <div class="note">Please pay within 15 days. Thank you for your business.</div>
                 <div fxLayout="row" fxLayoutAlign="start start">
                     <div class="logo">
-                        <img src="assets/images/logos/fuse.svg">
+                        <img src="../../../assets/Images/fuse.svg">
                     </div>
                     <div class="small-note">
                         In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue dolor. Quisque
@@ -182,7 +179,9 @@
 
             <div class="page-break-after"></div>
             <div class="page-break-before"></div>
+
             -->
+
         </div>
         <!-- / INVOICE -->
 
