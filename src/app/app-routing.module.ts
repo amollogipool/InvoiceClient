@@ -17,8 +17,8 @@ const routes: Routes = [
         path: '', component: NavigationComponent,
         children: [
           { path: '', component: VendermasterComponent },
-          { path: 'lead/:method', component: InvoiceformComponent },
-          { path: 'lead/:method/:id', component: InvoiceformComponent },
+          { path: 'invoiceform', component: InvoiceformComponent },
+          // { path: 'lead/:method/:id', component: InvoiceformComponent },
           { path: 'companymaster', component: CompanymasterComponent },
           { path: 'invoicemaster', component: InvoiceComponent },
           // { path: 'viewemployee/:id', component:  },

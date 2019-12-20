@@ -16,12 +16,12 @@ export class InvoiceformComponent implements OnInit {
 
   invoiceForm: any = {
     id: null,
-    clientname: null,
+    vendername: null,
     email: null,
     phno: null,
     panno: null,
     gstno: null,
-    
+
     issuedate: null,
     duedate: null,
     item: null,
@@ -34,7 +34,7 @@ export class InvoiceformComponent implements OnInit {
     paid: null,
   }
 
-  ClientName = new FormControl([Validators.required]);
+  VenderName = new FormControl([Validators.required]);
   Email = new FormControl([Validators.required]);
   PhNo = new FormControl([Validators.required]);
   PanNo = new FormControl([Validators.required]);
@@ -80,7 +80,7 @@ export class InvoiceformComponent implements OnInit {
   }
 
   submit() {
-    if (this.ClientName.valid && this.Email.valid && this.PhNo.valid && this.PanNo.valid && this.GstNo.valid && this.IssueDate.valid && this.DueDate.valid && this.Item.valid
+    if (this.VenderName.valid && this.Email.valid && this.PhNo.valid && this.PanNo.valid && this.GstNo.valid && this.IssueDate.valid && this.DueDate.valid && this.Item.valid
       && this.Price.valid && this.Qty.valid && this.Discount.valid && this.Amount.valid && this.Sgst.valid && this.Cgst.valid && this.Paid.valid) {
       if (this.method == 'edit') {
         //update API
@@ -109,7 +109,7 @@ export class InvoiceformComponent implements OnInit {
           });
       }
     } else {
-      this.ClientName.markAsTouched();
+      this.VenderName.markAsTouched();
       this.Email.markAsTouched();
       this.PhNo.markAsTouched();
       this.PanNo.markAsTouched();

@@ -13,14 +13,23 @@ export class InvoiceService {
     {id: 1, name: 'amol',dateOfBirth:new Date(),address:'pune'},
     {id: 2, name: 'soham',dateOfBirth:new Date(),address:'mumbai'},
     {id: 3, name: 'sandip',dateOfBirth:new Date(),address:'delhi'},
-    {id: 4, name: 'sagar',dateOfBirth:new Date(),address:'gujrat'}
+    {id: 4, name: 'sagar',dateOfBirth:new Date(),address:'gujrat'},
+    {id: 1, name: 'amol',dateOfBirth:new Date(),address:'pune'},
+    {id: 2, name: 'soham',dateOfBirth:new Date(),address:'mumbai'},
+    {id: 3, name: 'sandip',dateOfBirth:new Date(),address:'delhi'},
+    {id: 4, name: 'sagar',dateOfBirth:new Date(),address:'gujrat'},
+    {id: 1, name: 'amol',dateOfBirth:new Date(),address:'pune'},
+    {id: 2, name: 'soham',dateOfBirth:new Date(),address:'mumbai'},
+    {id: 3, name: 'sandip',dateOfBirth:new Date(),address:'delhi'},
+    {id: 4, name: 'sagar',dateOfBirth:new Date(),address:'gujrat'},
+    
   ]
   constructor(private httpClient: HttpClient, private router: Router) { }
   
   getAdmissionDetails(){
     return this.AdmissionData;
   }
-   
+
  GetHttpHeaders() : HttpHeaders {
   const headers = new HttpHeaders().set('content-type', 'application/json');
   return headers;
