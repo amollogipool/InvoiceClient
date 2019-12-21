@@ -13,6 +13,7 @@ export class InvoiceformComponent implements OnInit {
 
   method = 'create';
   venderid = null;
+  panelOpenState = false;
 
   invoiceForm: any = {
     id: null,
@@ -93,6 +94,19 @@ export class InvoiceformComponent implements OnInit {
       }
     })
   }
+  step = 0;
+
+  // setStep(index: number) {
+  //   this.step = index;
+  // }
+
+  // nextStep() {
+  //   this.step++;
+  // }
+
+  // prevStep() {
+  //   this.step--;
+  // }
 
   /**
 * getInventoryById() function to edit card 
