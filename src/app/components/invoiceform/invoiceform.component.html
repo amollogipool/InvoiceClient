@@ -139,18 +139,11 @@
             Due Date is required.
         </mat-error>
     </mat-form-field>
-</div>
-<div fxLayout="row" fxLayoutAlign="space-around center">
+
     <mat-form-field>
         <input matInput placeholder="Paid" [(ngModel)]="invoiceForm.paid" [formControl]="Paid" required>
         <mat-error *ngIf="Paid.hasError('required')">
             Paid is required.
         </mat-error>
     </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
-    </mat-form-field>
-    <mat-datepicker #picker></mat-datepicker>
-    <button mat-raised-button mat-primary (click)="submit()">{{method=='edit'?'Update':'Create'}}</button>
 </div>
