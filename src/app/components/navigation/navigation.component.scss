@@ -7,13 +7,17 @@
 }
 
 .mat-tab-nav-bar{
-    background-color: rgba(135, 207, 235, 0.322);
+    background-color: red;
+   font-size: 50;
 }
 
-// .mat-tab-link :hover{
-//      background-color: rgba(0, 0, 0, 0) !important;
-// }
+.mat-tab-link {
+     background-color: rgba(0, 0, 0, 0) !important;
+     font-size: 20px;
+}
 .mat-tab-link-active{
 background-color: rgba(135, 207, 235, 0.13);
+color: white;
+font-size: 50;
 }
 
