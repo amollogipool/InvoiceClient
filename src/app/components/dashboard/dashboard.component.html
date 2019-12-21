@@ -1,16 +1,10 @@
 <!-- Toolbar -->
-<div class="container" >
-    <div style="margin-left: 250;"></div>
 <mat-toolbar class="header">
     <div>Logipool Infotech</div>
     <span class="nav-tool-items">
         <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
     </span>
 </mat-toolbar>
-
-</div>
-
-
 
 <mat-sidenav-container>
     <!-- Sidenav -->
@@ -20,11 +14,11 @@
             <!-- <div>
                 <p>www.logipool.in</p>
             </div> -->
-            <a mat-list-item routerLinkActive="active"  routerLink="/addemployee" style="color: white;">
-                <mat-icon >person_add</mat-icon> Add Vender
+            <a mat-list-item routerLinkActive="active"  routerLink="/addemployee">
+                <mat-icon >add</mat-icon> Add Vender
             </a>
-            <a mat-list-item routerLinkActive="active"  routerLink="/viewemployee" style="color: white;">
-                <mat-icon>format_list_bulleted</mat-icon> View Vender 
+            <a mat-list-item routerLinkActive="active"  routerLink="/viewemployee">
+                <mat-icon>format_list_bulleted</mat-icon> View Vender
             </a>
         </mat-nav-list>
     </mat-sidenav>
@@ -34,4 +28,3 @@
         <!-- <app-navigation></app-navigation> -->
     </mat-sidenav-content>
 </mat-sidenav-container>
-

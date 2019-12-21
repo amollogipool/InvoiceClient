@@ -16,7 +16,7 @@ export class NavigationComponent implements OnInit {
    
     this.routeLinks = [
       {     
-        label: 'Vendor Master',
+        label: 'Vender Master',
         link: './',
         index: 0
       },
