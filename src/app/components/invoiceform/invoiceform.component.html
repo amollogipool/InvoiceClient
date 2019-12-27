@@ -1,139 +1,190 @@
-<div >
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Vendor name" [(ngModel)]="invoiceForm.vendername" [formControl]="VenderName" required>
-            <mat-label>Vendor Name</mat-label>
-            <mat-icon matSuffix>perm_identity</mat-icon>
-            <mat-error *ngIf="VenderName.hasError('required')">
-                Vendor is required.
-            </mat-error>
-        </mat-form-field>
+<div style="margin-top: 5 0px;" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
+    <mat-card>
+        <form>
+            <!-- <div class="item item-1" fxFlex="15%">Item 1</div> -->
+            <!-- <div class="item item-2" fxFlex="20%" fxFlexOrder="3">Item 2</div>
+        <div class="item item-3" fxFlex>Item 3</div> -->
+            <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                <mat-form-field fxFlex="25%" appearance="">
+                    <input matInput placeholder="Vendor name" [(ngModel)]="invoiceForm.vendorname"
+                        [formControl]="VendorName" required>
+                    <mat-label>Vendor Name</mat-label>
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-error *ngIf="VendorName.hasError('required')">
+                        Vendor is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput type="email" placeholder="Vendor Email" [(ngModel)]="invoiceForm.email" [formControl]="Email" required>
-            <mat-error *ngIf="Email.hasError('required')">
-               Vendor Email is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="25%" appearance="">
+                    <input matInput type="email" placeholder="Vendor Email" [(ngModel)]="invoiceForm.email"
+                        [formControl]="Email" required>
+                    <mat-label>Vendor Email</mat-label>
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <mat-error *ngIf="Email.hasError('required')">
+                        Vendor Email is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="employee contact"  [(ngModel)]="invoiceForm.phno" [formControl]="PhNo" required>
-            <mat-error *ngIf="PhNo.hasError('required')">
-                Mobile Number is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="20%" appearance="">
+                    <input matInput placeholder="Phone Number" [(ngModel)]="invoiceForm.phno" [formControl]="PhNo"
+                        required>
+                    <mat-label>Phone Number</mat-label>
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error *ngIf="PhNo.hasError('required')">
+                        Phone Number is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="employee gender" [(ngModel)]="invoiceForm.gstno"  [formControl]="GstNo" required>
-            <mat-error *ngIf="GstNo.hasError('required')">
-                Gst number is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="20%" appearance="">
+                    <input matInput placeholder="Pan Number" [(ngModel)]="invoiceForm.panno" [formControl]="PanNo"
+                        required>
+                    <mat-label>Pan Number</mat-label>
+                    <mat-icon matSuffix>pan_tool</mat-icon>
+                    <mat-error *ngIf="PanNo.hasError('required')">
+                        Pan Number is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
 
-        <mat-form-field>
-            <input matInput placeholder="Address" [(ngModel)]="invoiceForm.address"  [formControl]="Address" required>
-            <mat-error *ngIf="Address.hasError('required')">
-                Address is required.
-            </mat-error>
-        </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-form-field fxFlex="26%" style="margin-left: 15px;">
+                    <input matInput placeholder="GST Number" [(ngModel)]="invoiceForm.gstno" [formControl]="GstNo"
+                        required>
+                    <mat-label>GST Number</mat-label>
+                    <mat-icon matSuffix><img style="width:30px;height:30px;" src="../../../assets/Images/gst2.jpg">
+                    </mat-icon>
+                    <mat-error *ngIf="GstNo.hasError('required')">
+                        Gst number is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Item" [(ngModel)]="invoiceForm.item"  [formControl]="Item" required>
-            <mat-error *ngIf="Item.hasError('required')">
-                Item is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="47%" style="margin-left: 15px;">
+                    <input matInput placeholder="Address" [(ngModel)]="invoiceForm.address" [formControl]="Address"
+                        required>
+                    <mat-label>Address</mat-label>
+                    <mat-icon matSuffix>address</mat-icon>
+                    <mat-error *ngIf="Address.hasError('required')">
+                        Address is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <mat-divider></mat-divider>
+            <!-- <div>
+            <h3>Invoice Details:</h3>
+        </div> -->
+            <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px" fxLayoutGap.xs="0">
+                <mat-form-field fxFlex="30%" appearance="">
+                    <input matInput placeholder="Item" [(ngModel)]="invoiceForm.item" [formControl]="Item" required>
+                    <mat-error *ngIf="Item.hasError('required')">
+                        Item is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Description" [(ngModel)]="invoiceForm.description"  [formControl]="Description" required>
-            <mat-error *ngIf="Description.hasError('required')">
-                Description is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="40%" appearance="">
+                    <input matInput placeholder="Description" [(ngModel)]="invoiceForm.description"
+                        [formControl]="Description" required>
+                    <mat-label>Description</mat-label>
+                    <mat-icon matSuffix>address</mat-icon>
+                    <mat-error *ngIf="Description.hasError('required')">
+                        Description is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Price" [(ngModel)]="invoiceForm.price"  [formControl]="Price" required>
-            <mat-error *ngIf="Price.hasError('required')">
-                Price is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="15%" appearance="">
+                    <input matInput placeholder="Price" [(ngModel)]="invoiceForm.price" [formControl]="Price" required>
+                    <mat-error *ngIf="Price.hasError('required')">
+                        Price is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Quantity" [(ngModel)]="invoiceForm.qty" [formControl]="Qty" required>
-            <mat-error *ngIf="Qty.hasError('required')">
-                Quantity is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="15%" appearance="">
+                    <input matInput placeholder="Quantity" [(ngModel)]="invoiceForm.qty" [formControl]="Qty" required>
+                    <mat-error *ngIf="Qty.hasError('required')">
+                        Quantity is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="employee address"  [(ngModel)]="invoiceForm.discount" [formControl]="Discount" required>
-            <mat-error *ngIf="Discount.hasError('required')">
-                Discount is required.
-            </mat-error>
-        </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px" fxLayoutGap.xs="0">
 
-        <mat-form-field>
-            <input matInput placeholder="Amount"  [(ngModel)]="invoiceForm.amount" [formControl]="Amount" required>
-            <mat-error *ngIf="Amount.hasError('required')">
-                Amount is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="30%" appearance="">
+                    <input matInput placeholder="Discount" [(ngModel)]="invoiceForm.discount" [formControl]="Discount"
+                        required>
+                    <mat-error *ngIf="Discount.hasError('required')">
+                        Discount is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Sgst"  [(ngModel)]="invoiceForm.sgst" [formControl]="Sgst" required>
-            <mat-error *ngIf="Sgst.hasError('required')">
-                Sgst is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="30%" appearance="">
+                    <input matInput placeholder="Amount" type="number" [(ngModel)]="invoiceForm.amount"
+                        [formControl]="Amount" required >
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix>.00</span>
+                    <mat-error *ngIf="Amount.hasError('required')">
+                        Amount is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Cgst" [(ngModel)]="invoiceForm.cgst" [formControl]="Cgst" required>
-            <mat-error *ngIf="Cgst.hasError('required')">
-                Cgst is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="30%" appearance="">
+                    <input matInput placeholder="Sgst" [(ngModel)]="invoiceForm.sgst" [formControl]="Sgst" required>
+                    <mat-error *ngIf="Sgst.hasError('required')">
+                        Sgst is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Amount Tax"  [(ngModel)]="invoiceForm.amttax" [formControl]="Amttax" required>
-            <mat-error *ngIf="Amttax.hasError('required')">
-                Amount Tax is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="30%" appearance="">
+                    <input matInput placeholder="Cgst" [(ngModel)]="invoiceForm.cgst" [formControl]="Cgst" required>
+                    <mat-error *ngIf="Cgst.hasError('required')">
+                        Cgst is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px" fxLayoutGap.xs="0">
+                <mat-form-field fxFlex="30%" appearance="">
+                    <mat-select placeholder="Payment Method" [(ngModel)]="invoiceForm.paymthd" [formControl]="Paymthd"
+                        required>
+                        <mat-option *ngFor="let payment of PaymentMethod" [value]="payment.method">{{payment.method}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="Paymthd.hasError('required')">
+                        Payment Method is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Payment Method"  [(ngModel)]="invoiceForm.paymthd" [formControl]="Paymthd" required>
-            <mat-error *ngIf="Paymthd.hasError('required')">
-                Payment Method is required.
-            </mat-error>
-        </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Issue Date"  [(ngModel)]="invoiceForm.issueDate" [formControl]="IssueDate" required>
-            <mat-error *ngIf="IssueDate.hasError('required')">
-                Issue Date is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="30%" appearance="">
+                    <input matInput [matDatepicker]="picker1" placeholder="Issue Date"
+                        [(ngModel)]="invoiceForm.issuedate" [formControl]="IssueDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    <mat-error *ngIf="IssueDate.hasError('required')">
+                        Issue Date is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Due Date"  [(ngModel)]="invoiceForm.dueDate" [formControl]="DueDate" required>
-            <mat-error *ngIf="DueDate.hasError('required')">
-                Due Date is required.
-            </mat-error>
-        </mat-form-field>
+                <mat-form-field fxFlex="30%" appearance="">
+                    <input matInput [matDatepicker]="picker" placeholder="Due Date" [(ngModel)]="invoiceForm.duedate"
+                        [formControl]="DueDate" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="DueDate.hasError('required')">
+                        Due Date is required.
+                    </mat-error>
+                </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Paid"  [(ngModel)]="invoiceForm.paid" [formControl]="Paid" required>
-            <mat-error *ngIf="Paid.hasError('required')">
-                Paid is required.
-            </mat-error>
-        </mat-form-field>
-        <div>
-        <button mat-raised-button mat-primary (click)="submit()">{{method=='edit'?'Update':'Create'}}</button>
-        </div>
-
-        <!-- <div mat-dialog-actions>
-            <button mat-button (click)="doAction()">{{action}}</button>
-            <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
-          </div> -->
-    </form>
+                <mat-form-field fxFlex="30%" appearance="">
+                    <mat-select placeholder="Paid" [(ngModel)]="invoiceForm.paid" [formControl]="Paid" required>
+                        <mat-option *ngFor="let paid of PaidStatus" [value]="paid.method">{{paid.method}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="Paid.hasError('required')">
+                        Paid is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end center">
+                <button mat-raised-button (click)="submit()">{{method=='edit'?'Update':'Create'}}</button>
+            </div>
+        </form>
+    </mat-card>
 </div>

@@ -11,6 +11,7 @@ th.mat-header-cell {
     // background-color: chocolate;
     background-color: rgba(135, 207, 235, 0.322);
     font-size: 15px;
+    color: white;
 }
 
 .example-container {
@@ -18,6 +19,10 @@ th.mat-header-cell {
     max-height: 410px;
   }
   
+  .mat-row:hover {
+    background-color: rgba(135, 207, 235, 0.322);
+  }
+
   .example-table-container {
     position: relative;
     max-height: 270px;
@@ -42,5 +47,3 @@ th.mat-header-cell {
     max-width: 360px;
     text-align: center;
   }
-  
-  

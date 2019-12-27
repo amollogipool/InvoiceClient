@@ -14,7 +14,7 @@ export class VendermasterComponent implements OnInit {
 
   ELEMENT_DATA: any = [] = [];
   dataSource = new MatTableDataSource();
-  public displayedColumns: string[] = ['id', 'vendername', 'email', 'phno', 'panno', 'gstno', 'address', 'action'];
+  public displayedColumns: string[] = ['vendorid', 'vendorname', 'email', 'phno', 'panno', 'gstno', 'address', 'action'];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -57,11 +57,11 @@ export class VendermasterComponent implements OnInit {
   }
 
   viewInvoice(element) {
-    this.router.navigate(['./dashboard/invoice', element.id]);
+    this.router.navigate(['./dashboard/invoice', element.vendorid]);    
   }
 
-  editVender(element) {
-    this.router.navigate(['./dashboard/invoiceform', 'edit', element.id]);
+  editVendor(element) {
+    this.router.navigate(['./dashboard/invoiceform', 'edit', element.vendorid]);
   }
 
   deleteVender(element) {

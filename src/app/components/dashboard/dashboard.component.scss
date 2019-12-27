@@ -1,13 +1,20 @@
 .header{
-    background-color: rgba(186, 85, 211, 0.705);
+    background-color: red;
+    color: white;
+   padding-left: 40px;
+    text-shadow: 10px 10px 10px grey;
+    
+    
 }
 .mat-sidenav{
-    background-color: rgba(135, 207, 235, 0.322);
+    // background-color:rgba(0, 0, 0, 0.705);
+    color: black;
 }
 .mat-nav-list{
-    background-color: rgba(186, 85, 211, 0.705);
+    background-color: rgba(239, 225, 243, 0.705);
+    color: white;
 }
 .mat-list-item:hover{
-    background-color: rgba(135, 207, 235, 0.13);
+    background-color: red;
+    color: white;
     }
-

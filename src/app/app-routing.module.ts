@@ -22,6 +22,7 @@ const routes: Routes = [
           { path: 'invoice/:id', component: InvoiceComponent },
         ]
       },
+      // { path: 'invoice/:id', component: InvoiceComponent },
     ]
   }
 ];

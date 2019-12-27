@@ -3,9 +3,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularMaterialModule } from './materials/material.module';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { NgxPrintModule } from 'ngx-print';
 import { AppComponent } from './app.component';
 import { InvoiceService } from './services/invoice.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -33,9 +35,10 @@ import { InvoicemasterComponent } from './components/invoicemaster/invoicemaster
     FormsModule,
     ReactiveFormsModule,
     AngularMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxPrintModule
   ],
-  providers: [InvoiceService],
+  providers: [DatePipe,InvoiceService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [InvoiceformComponent]

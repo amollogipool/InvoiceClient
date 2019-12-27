@@ -1,11 +1,10 @@
 <!-- Toolbar -->
 <mat-toolbar class="header">
-    <div>Logipool Infotech</div>
+    <div>Logipool Infotech second branch</div>
     <span class="nav-tool-items">
         <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
     </span>
 </mat-toolbar>
-
 <mat-sidenav-container>
     <!-- Sidenav -->
     <mat-sidenav  #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
@@ -28,3 +27,4 @@
         <!-- <app-navigation></app-navigation> -->
     </mat-sidenav-content>
 </mat-sidenav-container>
+

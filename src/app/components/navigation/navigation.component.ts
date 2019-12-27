@@ -16,7 +16,7 @@ export class NavigationComponent implements OnInit {
    
     this.routeLinks = [
       {     
-        label: 'Vender Master',
+        label: 'Vendor Master',
         link: './',
         index: 0
       },
@@ -24,15 +24,15 @@ export class NavigationComponent implements OnInit {
         label: 'Invoice Master',
         link: './invoicemaster',
         index: 1
-      },
-      {     
-        label: 'Invoice',
-        link: './invoice',
-        index: 2
-      },
+      }
+      // {     
+      //   label: 'Invoice Form',
+      //   link: './invoiceform',
+      //   index: 1
+      // }
     ];
   }
-
+  
   ngOnInit() {
   }
 

@@ -7,37 +7,18 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class InvoiceService {
 
-  AdmissionData = [
-    {id: 1, name: 'amol',dateOfBirth:new Date(),address:'pune'},
-    {id: 2, name: 'soham',dateOfBirth:new Date(),address:'mumbai'},
-    {id: 3, name: 'sandip',dateOfBirth:new Date(),address:'delhi'},
-    {id: 4, name: 'sagar',dateOfBirth:new Date(),address:'gujrat'},
-    {id: 1, name: 'amol',dateOfBirth:new Date(),address:'pune'},
-    {id: 2, name: 'soham',dateOfBirth:new Date(),address:'mumbai'},
-    {id: 3, name: 'sandip',dateOfBirth:new Date(),address:'delhi'},
-    {id: 4, name: 'sagar',dateOfBirth:new Date(),address:'gujrat'},
-    {id: 1, name: 'amol',dateOfBirth:new Date(),address:'pune'},
-    {id: 2, name: 'soham',dateOfBirth:new Date(),address:'mumbai'},
-    {id: 3, name: 'sandip',dateOfBirth:new Date(),address:'delhi'},
-    {id: 4, name: 'sagar',dateOfBirth:new Date(),address:'gujrat'},
-    
-  ]
+export class InvoiceService {
   constructor(private httpClient: HttpClient, private router: Router) { }
   
-  getAdmissionDetails(){
-    return this.AdmissionData;
-  }
-
  GetHttpHeaders() : HttpHeaders {
   const headers = new HttpHeaders().set('content-type', 'application/json');
   return headers;
 }
 
-
 addNewInvoice(param: any): Observable<any> {
-  return this.httpClient.post( environment.addNewInvoice, param, { headers: this.GetHttpHeaders() });
+  console.log("Add Vendor from Service",param);
+  return this.httpClient.post(environment.addNewInvoice, param, { headers: this.GetHttpHeaders() });
   }
 
 getAllInvoice(): Observable<any>{                                
@@ -48,8 +29,9 @@ getAllVender(): Observable<any>{
   return this.httpClient.get(environment.getAllVender, {headers: this.GetHttpHeaders()});
   }
 
-getVenderById(id): Observable<any> {
-return this.httpClient.get(environment.getVenderById + '/' + id, { headers: this.GetHttpHeaders() });
+getVenderInvoiceById(id): Observable<any> {
+    console.log("Service called by id",id);
+return this.httpClient.get(environment.getVenderInvoiceById + '/' + id, { headers: this.GetHttpHeaders() });
 }
 
 updateVenderById(param: any): Observable<any> {
