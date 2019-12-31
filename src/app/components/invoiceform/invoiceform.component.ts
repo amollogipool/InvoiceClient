@@ -23,13 +23,16 @@ export class InvoiceformComponent implements OnInit {
     panno: null,
     gstno: null,
     address: null,
+    itemArray: null,
 
-    item: null,
-    description: null,
-    price: null,
-    qty: null,
-    discount: null,
-    amount: null,
+    // item: null,
+    // description: null,
+    // price: null,
+    // qty: null,
+    // discount: null,
+    // amount: null,
+  
+    subtotal:null,
     sgst: null,
     cgst: null,
     amttax: null,
@@ -53,6 +56,8 @@ export class InvoiceformComponent implements OnInit {
     { method: 'NO' },
   ];
 
+  private fieldArray: Array<any> = [];
+  private newAttribute: any = {};
   // VendorName: null,
   // Email: null,
   // Phno: null,
@@ -104,11 +109,18 @@ export class InvoiceformComponent implements OnInit {
       }
       if (this.method == 'edit') {
         this.getVenderInvoiceById(this.vendorid);
-        this.disableFieldsWhileEdit();
       }
     })
   }
 
+  addFieldValue() {
+      this.fieldArray.push(this.newAttribute)
+      this.newAttribute = {};
+  }
+
+  deleteFieldValue(index) {
+     this.fieldArray.splice(index, 1);
+  }
   /**
 * getInventoryById() function to edit card 
 * @param id 
@@ -172,11 +184,13 @@ export class InvoiceformComponent implements OnInit {
           });
       }
       if (this.method == 'create') {
-        //Create API
+        //Create API.
+        this.invoiceForm.itemArray = this.fieldArray;
         this.invoiceService.addNewInvoice(this.invoiceForm).subscribe(res => {
           if (!res.error) {
             alert('Vendor Created Successfully');
             console.log(this.invoiceForm);
+            // console.log("field array",this.fieldArray);
             this.location.back();
           }
         },

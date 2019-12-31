@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+https://www.npmjs.com/package/ngx-print
+https://medium.com/@Idan_Co/angular-print-service-290651c721f9
+https://www.positronx.io/angular-7-ngclass-and-ngstyle-explained/
+https://bootsnipp.com/snippets/8MPnQ

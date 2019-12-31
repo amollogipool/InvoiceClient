@@ -69,13 +69,15 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <mat-divider></mat-divider>
+            <!-- <mat-divider></mat-divider> -->
             <!-- <div>
             <h3>Invoice Details:</h3>
         </div> -->
-            <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px" fxLayoutGap.xs="0">
+            <!-- <div fxLayout="row" style="margin-top: 15px;" fxLayoutAlign="space-evenly center" fxLayoutGap="15px"
+                fxLayoutGap.xs="0">
                 <mat-form-field fxFlex="30%" appearance="fill">
                     <input matInput placeholder="Item" [(ngModel)]="invoiceForm.item" [formControl]="Item" required>
+                    <mat-label>Item</mat-label>
                     <mat-error *ngIf="Item.hasError('required')">
                         Item is required.
                     </mat-error>
@@ -93,6 +95,7 @@
 
                 <mat-form-field fxFlex="15%" appearance="fill">
                     <input matInput placeholder="Price" [(ngModel)]="invoiceForm.price" [formControl]="Price" required>
+                    <mat-label>Price</mat-label>
                     <mat-error *ngIf="Price.hasError('required')">
                         Price is required.
                     </mat-error>
@@ -100,17 +103,96 @@
 
                 <mat-form-field fxFlex="15%" appearance="fill">
                     <input matInput placeholder="Quantity" [(ngModel)]="invoiceForm.qty" [formControl]="Qty" required>
+                    <mat-label>Quantity</mat-label>
                     <mat-error *ngIf="Qty.hasError('required')">
                         Quantity is required.
                     </mat-error>
                 </mat-form-field>
 
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px" fxLayoutGap.xs="0">
+            </div> -->
+            <div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>discount</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let field of fieldArray; let i = index">
+                            <td>
+                                <input [(ngModel)]="field.item" class="form-control" type="text"
+                                    name="{{field.item}}" />
+                            </td>
+                            <td>
+                                <input [(ngModel)]="field.description" class="form-control" type="text"
+                                    name="{{field.description}}" />
+                            </td>
+                            <td>
+                                <input [(ngModel)]="field.price" class="form-control" type="text"
+                                    name="{{field.price}}" />
+                            </td>
+                            <td>
+                                <input [(ngModel)]="field.qty" class="form-control" type="text" name="{{field.qty}}" />
+                            </td>
+                            <td>
+                                <input [(ngModel)]="field.discount" class="form-control" type="text"
+                                    name="{{field.discount}}" />
+                            </td>
+                            <td>
+                                <input [(ngModel)]="field.amount" class="form-control" type="text"
+                                    name="{{field.amount}}" />
+                            </td>
+                            <td>
+                                <button class="btn btn-default" type="button"
+                                    (click)="deleteFieldValue(i)">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributeCode"
+                                    [(ngModel)]="newAttribute.item" name="newAttributeCode" />
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributeName"
+                                    [(ngModel)]="newAttribute.description" name="newAttributeName" />
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributePrice"
+                                    [(ngModel)]="newAttribute.price" name="newAttributePrice" />
+                            </td>
 
+
+                            <td>
+                                <input class="form-control" type="text" id="newAttributeCode"
+                                    [(ngModel)]="newAttribute.qty" name="newAttributeCode" />
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributeName"
+                                    [(ngModel)]="newAttribute.discount" name="newAttributeName" />
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" id="newAttributePrice"
+                                    [(ngModel)]="newAttribute.amount" name="newAttributePrice" />
+                            </td>
+                            <td>
+                                <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px" fxLayoutGap.xs="0"> -->
+<!-- 
                 <mat-form-field fxFlex="30%" appearance="fill">
                     <input matInput placeholder="Discount" [(ngModel)]="invoiceForm.discount" [formControl]="Discount"
                         required>
+                    <mat-label>Discount</mat-label>
                     <mat-icon matSuffix><img style="width:30px;height:30px;" src="../../../assets/Images/discount1.png">
                     </mat-icon>
                     <mat-error *ngIf="Discount.hasError('required')">
@@ -121,14 +203,16 @@
                 <mat-form-field fxFlex="30%" appearance="fill">
                     <input matInput placeholder="Amount" [(ngModel)]="invoiceForm.amount" [formControl]="Amount"
                         required>
+                    <mat-label>Amount</mat-label>
                     <mat-icon matSuffix>attach_money</mat-icon>
                     <mat-error *ngIf="Amount.hasError('required')">
                         Amount is required.
                     </mat-error>
-                </mat-form-field>
+                </mat-form-field> -->
 
-                <mat-form-field fxFlex="30%" appearance="fill">
+                <!-- <mat-form-field fxFlex="30%" appearance="fill">
                     <input matInput placeholder="Sgst" [(ngModel)]="invoiceForm.sgst" [formControl]="Sgst" required>
+                    <mat-label>Sgst</mat-label>
                     <mat-error *ngIf="Sgst.hasError('required')">
                         Sgst is required.
                     </mat-error>
@@ -136,26 +220,45 @@
 
                 <mat-form-field fxFlex="30%" appearance="fill">
                     <input matInput placeholder="Cgst" [(ngModel)]="invoiceForm.cgst" [formControl]="Cgst" required>
+                    <mat-label>Cgst</mat-label>
                     <mat-error *ngIf="Cgst.hasError('required')">
                         Cgst is required.
                     </mat-error>
                 </mat-form-field>
-            </div>
+            </div> -->
             <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px" fxLayoutGap.xs="0">
-                <mat-form-field fxFlex="30%" appearance="fill">
-                    <mat-icon matPrefix>payment</mat-icon>
+               
+                <mat-form-field fxFlex="15%" appearance="fill">
+                    <input matInput placeholder="Sgst" [(ngModel)]="invoiceForm.sgst" [formControl]="Sgst" required>
+                    <mat-label>Sgst</mat-label>
+                    <mat-error *ngIf="Sgst.hasError('required')">
+                        Sgst is required.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="15%" appearance="fill">
+                    <input matInput placeholder="Cgst" [(ngModel)]="invoiceForm.cgst" [formControl]="Cgst" required>
+                    <mat-label>Cgst</mat-label>
+                    <mat-error *ngIf="Cgst.hasError('required')">
+                        Cgst is required.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="20%" appearance="fill">
+                    <!-- <mat-icon matPrefix>payment</mat-icon> -->
                     <mat-select placeholder="Payment Method" [(ngModel)]="invoiceForm.paymthd" [formControl]="Paymthd"
                         required>
                         <mat-option *ngFor="let payment of PaymentMethod" [value]="payment.method">{{payment.method}}
                         </mat-option>
                     </mat-select>
+                    <mat-label>Payment</mat-label>
                     <mat-error *ngIf="Paymthd.hasError('required')">
                         Payment Method is required.
                     </mat-error>
                 </mat-form-field>
 
 
-                <mat-form-field fxFlex="30%" appearance="fill">
+                <mat-form-field fxFlex="15%" appearance="fill">
                     <input matInput [matDatepicker]="picker1" placeholder="Issue Date"
                         [(ngModel)]="invoiceForm.issuedate" [formControl]="IssueDate" required>
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -165,7 +268,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field fxFlex="30%" appearance="fill">
+                <mat-form-field fxFlex="15%" appearance="fill">
                     <input matInput [matDatepicker]="picker" placeholder="Due Date" [(ngModel)]="invoiceForm.duedate"
                         [formControl]="DueDate" required>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -175,7 +278,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field fxFlex="30%" appearance="fill">
+                <mat-form-field fxFlex="10%" appearance="fill">
                     <mat-select placeholder="Paid" [(ngModel)]="invoiceForm.paid" [formControl]="Paid" required>
                         <mat-option *ngFor="let paid of PaidStatus" [value]="paid.method">{{paid.method}}</mat-option>
                     </mat-select>

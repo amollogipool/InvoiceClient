@@ -1,12 +1,168 @@
-
+<!-- 
 <div id="invoice" fxLayout="row" class="example-container" [class.mat-elevation-z2]="!isActive"
     [class.mat-elevation-z8]="isActive">
     <div mat-elevation-z7>
+        <h2>Technogrowth Invoice</h2>
         {{invoiceData | json}}
+        <h1>Logipool Invoice</h1>
+    </div>
+</div> -->
+
+<!-- <div fxLayout="row" style="margin-top:10px;" fxLayoutAlign="end center">    
+   
+</div> -->
+<mat-toolbar mat-elevation-z2 fxLayoutAlign="end center">
+    <button color="primary" printTitle="Company Invoice" styleSheetFile="../../../assets/css/invoice.css"
+        printSectionId="invoice" ngxPrint (click)="isActive = !isActive" mat-mini-fab aria-label="Print Document">
+        <mat-icon>print</mat-icon>
+    </button>
+</mat-toolbar>
+<!-- <mat-toolbar>INVOICE</mat-toolbar> -->
+<div id="invoice" mat-elevation-z7>
+    <div class="invoice overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank" href="https://lobianijs.com">
+                            <img height="60" width="200" src="../../../assets/Images/tech.png"
+                                data-holder-rendered="true" />
+                        </a>
+                    </div>
+                    <div class="col company-details">
+                        <div class="name">
+                            <h3>
+                                <a target="_blank" href="http://technogrowth.com/index.html">
+                                    Technogrowth Software Solution Pvt.Ltd.
+                                </a>
+                            </h3>
+                        </div>
+                        <div>Office: Dnyandeep colony, Shriraj
+                            Bungalow, Yogiraj Park, Lane No. 1,
+                            KarveNagar, Pin: 411 052,
+
+                        </div>
+                        +91 8983 201 122
+                        info@technogrowth.com
+                    </div>
+                </div>
+
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">INVOICE TO:</div>
+                        <h2 class="to">{{invoiceData.vendorname |titlecase}}</h2>
+                        <div class="address">{{invoiceData.address}}</div>
+                        <div class="email"><a href="mailto:john@example.com">{{invoiceData.email}}</a></div>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">INVOICE 3-2-1</h1>
+                        <div class="date">Date of Invoice: {{invoiceData.issuedate | date: "mediumDate"}}</div>
+                        <div class="date">Due Date: {{invoiceData.duedate | date: "mediumDate"}}</div>
+                    </div>
+                </div>
+                <!-- <table mat-table [dataSource]="ELEMENT_DATA" class="mat-elevation-z8">
+                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+                      <th mat-header-cell *matHeaderCellDef> {{column |titlecase}} </th>
+                      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+                  </table> -->
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th class="text-left">DESCRIPTION</th>
+                            <th class="text-right">PRICE</th>
+                            <th class="text-right">QUANTITY</th>
+                            <th class="text-right">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="no">{{invoiceData.vendorid}}</td>
+                            <td class="text-left">
+                                {{invoiceData.description}}
+                                <!-- <h3>
+                                    <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                        Youtube channel
+                                    </a>
+                                </h3>
+                                <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                    Useful videos
+                                </a> -->
+                            </td>
+                            <td class="unit">${{invoiceData.price}}</td>
+                            <td class="qty">${{invoiceData.qty}}</td>
+                            <td class="total">${{invoiceData.amount}}</td>
+                        </tr>
+                        <!-- <tr>
+                            <td class="no">01</td>
+                            <td class="text-left">
+                                <h3>Website Design</h3>Creating a recognizable design solution based on the company's
+                                existing visual identity
+                            </td>
+                            <td class="unit">$40.00</td>
+                            <td class="qty">30</td>
+                            <td class="total">$1,200.00</td>
+                        </tr>
+                        <tr>
+                            <td class="no">02</td>
+                            <td class="text-left">
+                                <h3>Website Development</h3>Developing a Content Management System-based Website
+                            </td>
+                            <td class="unit">$40.00</td>
+                            <td class="qty">80</td>
+                            <td class="total">$3,200.00</td>
+                        </tr>
+                        <tr>
+                            <td class="no">03</td>
+                            <td class="text-left">
+                                <h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)
+                            </td>
+                            <td class="unit">$40.00</td>
+                            <td class="qty">20</td>
+                            <td class="total">$800.00</td>
+                        </tr> -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">SUBTOTAL</td>
+                            <td>$${{invoiceData.amount}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">SGST</td>
+                            <td>{{invoiceData.sgst}}%</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">CGST</td>
+                            <td>{{invoiceData.cgst}}%</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">GRAND TOTAL</td>
+                            <td>${{invoiceData.amttax}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!-- <div class="thanks">Thank you!</div> -->
+                <div class="notices">
+                    <div>NOTICE:</div>
+                    <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+                </div>
+            </main>
+            <footer>
+                Invoice was created on a computer and is valid without the signature and seal.
+            </footer>
+        </div>
+        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+        <div></div>
     </div>
 </div>
-
-<button color="primary" printSectionId="invoice" ngxPrint (click)="isActive = !isActive" mat-mini-fab
-    aria-label="Print Document">
-    <mat-icon>print</mat-icon>
-</button>

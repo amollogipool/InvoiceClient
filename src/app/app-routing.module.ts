@@ -6,11 +6,13 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { VendermasterComponent } from './components/vendermaster/vendermaster.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { InvoicemasterComponent } from './components/invoicemaster/invoicemaster.component';
+import { MyNavigationComponent } from './components/my-navigation/my-navigation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'mynav', component: MyNavigationComponent },
   {
-    path: 'dashboard', component: DashboardComponent, 
+    path: 'dashboard', component: DashboardComponent,
     children: [
       {
         path: '', component: NavigationComponent,
