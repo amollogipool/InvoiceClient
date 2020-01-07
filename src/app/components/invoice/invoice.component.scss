@@ -1,20 +1,6 @@
-// .example-container {
-//     padding: 16px;
-//     margin-bottom: 16px;
-//   }
-//   .invoice-container {
-//     padding: 5px;
-//   }
-
-  // mat-chip {
-  //   max-width: 200px;
-  // }
-
-// #invoice { page-break-after: always; }
-// #invoice:last-child { page-break-after: avoid; }
-
 #invoice{
   padding: 30px;
+  background-color:#ecfcff8c;
 }
 
 .invoice {
@@ -137,7 +123,9 @@
   text-align: right;
   padding: 10px 20px;
   font-size: 1.2em;
-  border-top: 1px solid #aaa
+  border-top: 1px solid #aaa;
+  position: relative;
+  left: 250px;
 }
 
 .invoice table tfoot tr:first-child td {
@@ -169,8 +157,11 @@
   }
 }
   .invoice footer {
-      position: absolute;
+      position: relative;
       bottom: 10px;
       page-break-after: always
   }
 
+ 
+   
+ 

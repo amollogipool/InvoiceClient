@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material';
@@ -8,9 +8,14 @@ import { InvoiceService } from 'src/app/services/invoice.service';
 @Component({
   selector: 'app-vendermaster',
   templateUrl: './vendermaster.component.html',
-  styleUrls: ['./vendermaster.component.scss']
+  styleUrls: ['./vendermaster.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class VendermasterComponent implements OnInit {
+
+  color: any = "#3f51b5";
+
+  customers: any = {};
 
   ELEMENT_DATA: any = [] = [];
   dataSource = new MatTableDataSource();
@@ -57,7 +62,7 @@ export class VendermasterComponent implements OnInit {
   }
 
   viewInvoice(element) {
-    this.router.navigate(['./dashboard/invoice', element.vendorid]);    
+    this.router.navigate(['./dashboard/invoice', element.vendorid]);
   }
 
   editVendor(element) {
@@ -74,6 +79,10 @@ export class VendermasterComponent implements OnInit {
       alert('Oops!! Something Went Wrong');
       console.log(error);
     });
+  }
+
+  getInvoices() {
+    alert("this works");
   }
 
 }

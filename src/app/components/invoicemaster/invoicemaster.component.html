@@ -1,5 +1,6 @@
-<div class="example-container mat-elevation-z8">
-    <!-- <div class="mat-elevation-z8" fxLayout fxLayout.xs="row" fxLayoutAlign="center center" fxLayoutGap="10px"
+<!-- <div>Invoice Data {{ELEMENT_DATA | json}}</div> -->
+<!-- <div class="example-container mat-elevation-z8"> -->
+<!-- <div class="mat-elevation-z8" fxLayout fxLayout.xs="row" fxLayoutAlign="center center" fxLayoutGap="10px"
         fxLayoutGap.xs="0">
          <div class="item item-1" fxFlex="70%">
             <button mat-mini-fab aria-label="Add New Invoice" style="background-color: skyblue;">
@@ -7,47 +8,37 @@
             </button>
         </div> 
     </div> -->
-    <div class="item item-2" fxLayout  fxLayout="row" fxLayoutAlign="end center">
+<!-- <div class="item item-2" fxLayout  fxLayout="row" fxLayoutAlign="end center">
         <mat-form-field>
             <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
     </div>
-    <div class="example-table-container">
-        <!-- <div class="scrollbar"> -->
-        <table mat-table [dataSource]="dataSource" matSort matSortStart="desc" class="mat-elevation-z8">
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <div class="example-table-container"> -->
+<!-- <div class="scrollbar"> -->
+<!-- <table mat-table [dataSource]="dataSource" matSort matSortStart="desc" class="mat-elevation-z8">
+            <ng-container matColumnDef="invoiceid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.invoiceid}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="item">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Item </th>
-                <td mat-cell *matCellDef="let element"> {{element.item}} </td>
+            <ng-container matColumnDef="paymthd">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment </th>
+                <td mat-cell *matCellDef="let element"> {{element.paymthd}} </td>
             </ng-container>
             
-            <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            <ng-container matColumnDef="issuedate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Issue Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.issuedate | date :'dd-MMM-yy h:mm:ss a '}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            <ng-container matColumnDef="duedate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.duedate | date :'dd-MMM-yy h:mm:ss a '}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="qty">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
-                <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="discount">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Discount </th>
-                <td mat-cell *matCellDef="let element"> {{element.discount}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="amount">
+            <ng-container matColumnDef="subtotal">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
-                <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.subtotal}} </td>
             </ng-container>
 
             <ng-container matColumnDef="sgst">
@@ -55,58 +46,79 @@
                 <td mat-cell *matCellDef="let element"> {{element.sgst}} </td>
             </ng-container>
 
-            
             <ng-container matColumnDef="cgst">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> CGST </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> SGST </th>
                 <td mat-cell *matCellDef="let element"> {{element.cgst}} </td>
             </ng-container>
+
             <ng-container matColumnDef="amttax">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount Tax </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tax </th>
                 <td mat-cell *matCellDef="let element"> {{element.amttax}} </td>
             </ng-container>
-            <ng-container matColumnDef="paymthd">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment </th>
-                <td mat-cell *matCellDef="let element"> {{element.paymthd}} </td>
-            </ng-container>
-           
-            <ng-container matColumnDef="issuedate">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Issue Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.issuedate | date: "mediumDate"}} </td>
-            </ng-container>
-            <ng-container matColumnDef="duedate">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.duedate | date: "mediumDate"}} </td>
-            </ng-container>
+
+            
             <ng-container matColumnDef="paid">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Paid </th>
                 <td mat-cell *matCellDef="let element"> {{element.paid}} </td>
             </ng-container>
-            <!-- <ng-container matColumnDef="action">
+         
+            <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> action </th>
                 <td mat-cell *matCellDef="let element">
                     <button mat-icon-button color="primary" (click)="redirectToDetails(element.id)">
                         <mat-icon class="mat-18">receipt</mat-icon>
-                    </button>
-                    <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id)">
+                    </button> -->
+<!-- <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id)">
                         <mat-icon class="mat-18">print</mat-icon>
-                    </button>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                        <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu">
-                        <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
-                            <mat-icon class="mat-18">edit</mat-icon>
-                        </button>
-                        <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
-                            <mat-icon class="mat-18">delete</mat-icon>
-                        </button>
-                    </mat-menu>
-                </td>
-            </ng-container> -->
+                    </button> -->
+<!-- </td>
+            </ng-container>
             <tr class="example-container" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
     <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
     </mat-paginator>
+</div> -->
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <caption>Example of hovering effect in table rows in Bootstrap 4.</caption>
+        <thead>
+            <tr>
+                <th> id </th>
+                <th> paymthd </th>
+                <th> issuedate </th>
+                <th> duedate </th>
+                <th> subtotal </th>
+                <th> sgst </th>
+                <th> cgst </th>
+                <th> amttax </th>
+                <th> paid </th>
+                <th> action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let invoice of invoices">
+                <td> {{invoice.invoiceid}} </td>
+                <td> {{invoice.paymthd}} </td>
+                <td> {{invoice.issuedate | date :'mediumDate'}} </td>
+                <td> {{invoice.duedate | date :'mediumDate'}} </td>
+                <td> {{invoice.subtotal}} </td>
+                <td> {{invoice.sgst}} </td>
+                <td> {{invoice.cgst}} </td>
+                <td> {{invoice.amttax}} </td>
+                <td> {{invoice.paid}} </td>
+                <td>
+                    <button mat-icon-button color="primary">
+                        <mat-icon class="mat-18">receipt</mat-icon>
+                    </button>
+                    <button mat-icon-button color="accent">
+                        <mat-icon class="mat-18">print</mat-icon>
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
 </div>

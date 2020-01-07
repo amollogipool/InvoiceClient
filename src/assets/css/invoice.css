@@ -108,7 +108,7 @@
   }
   
   .invoice table .total {
-    background: #3989c6;
+    background: #3989c6 !important;
     color: #fff
   }
   
@@ -123,7 +123,9 @@
     text-align: right;
     padding: 10px 20px;
     font-size: 1.2em;
-    border-top: 1px solid #aaa
+    border-top: 1px solid #aaa;
+    position: relative;
+    left: 200px;
   }
   
   .invoice table tfoot tr:first-child td {
@@ -159,4 +161,3 @@
         bottom: 10px;
         page-break-after: always
     }
-  

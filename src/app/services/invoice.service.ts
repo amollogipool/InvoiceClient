@@ -16,9 +16,22 @@ export class InvoiceService {
     return headers;
   }
 
+  // addNewInvoiceItems(param: any): Observable<any> {
+  //   console.log("Add items from Service", param);
+  //   return this.httpClient.post(environment.addNewInvoiceItems, param, { headers: this.GetHttpHeaders() });
+  // }
+
+  // deleteInvoiceItemById(param: any): Observable<any> {
+  //   return this.httpClient.delete(environment.deleteInvoiceItemById, param);
+  // }
+
   addNewInvoice(param: any): Observable<any> {
     console.log("Add Vendor from Service", param);
     return this.httpClient.post(environment.addNewInvoice, param, { headers: this.GetHttpHeaders() });
+  }
+
+  addNewInvoiceByVendorId(param:any): Observable<any> {
+   return this.httpClient.post(environment.addNewInvoiceByVendorId, param, { headers: this.GetHttpHeaders() });
   }
   
   getAllInvoice(): Observable<any> {
@@ -30,10 +43,13 @@ export class InvoiceService {
   }
 
   getVenderInvoiceById(id): Observable<any> {
-    console.log("Service called by id", id);
     return this.httpClient.get(environment.getVenderInvoiceById + '/' + id, { headers: this.GetHttpHeaders() });
   }
 
+  getInvoiceItemsById(id): Observable<any> {
+    return this.httpClient.get(environment.getInvoiceItemsById + '/' + id, { headers: this.GetHttpHeaders() });
+  }
+  
   updateVenderById(param: any): Observable<any> {
     return this.httpClient.post(environment.updateVenderById, param, { headers: this.GetHttpHeaders() });
   }
@@ -41,5 +57,10 @@ export class InvoiceService {
   DeleteVenderById(param: any): Observable<any> {
     return this.httpClient.put(environment.DeleteVenderById, param, { headers: this.GetHttpHeaders() });
   }
+
+  getAllInvoicedata(): Observable<any> {
+    return this.httpClient.get(environment.getAllInvoicedata, { headers: this.GetHttpHeaders() });
+  }
+  
 
 }

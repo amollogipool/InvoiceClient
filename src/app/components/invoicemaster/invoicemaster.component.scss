@@ -9,9 +9,9 @@ th.mat-header-cell {
     text-align: left;
     max-width: 300px;
     // background-color: chocolate;
-    background-color: rgba(135, 207, 235, 0.322);
+    background-color: #b2fcff;
     font-size: 15px;
-    color: white;
+    color: rgba(0, 0, 0, 0.589);
 }
 
 .example-container {
@@ -20,7 +20,7 @@ th.mat-header-cell {
   }
   
   .mat-row:hover {
-    background-color: rgba(135, 207, 235, 0.322);
+    background-color: #ecfcff;
   }
 
   .example-table-container {

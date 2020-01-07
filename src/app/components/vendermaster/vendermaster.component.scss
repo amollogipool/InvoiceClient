@@ -5,33 +5,66 @@ table {
     min-width: 500px;
 }
 
+#addbutton{
+  // background-color: #3e64ff;
+  margin-left: 5px;
+  background-color: #3f51b5;
+}
+
+.mat-elevation-z8{
+  background-color:#ecfcff8c;
+}
+
+.addNewInvoice{
+  background-color: #3e64ff;
+}
+
 th.mat-header-cell {
     text-align: left;
     max-width: 300px;
-    // background-color: chocolate;
-    background-color: rgba(135, 207, 235, 0.322);
+    // background-color:#b2fcff;
+    background-color: #039ae53b;
     font-size: 15px;
 }
 
 .mat-header-row {
     position: relative;
     max-height: 410px;
+    font-family: "Arial Black", Gadget, sans-serif;
+  }
+
+  .mat-row{
+    font-family: Gadget, sans-serif;
+    background-color:#ecfcff8c;
   }
   .mat-row:hover {
-    background-color: rgba(135, 207, 235, 0.322);
+    // background-color:#ecfcff;
+    background-color: #0ea3ee42;
   }
+  
   .mat-paginator{
-    background-color: rgba(239, 225, 243, 0.705);
+    // background-color:#ecfcff;
+    background-color: #039ae53b;
   }
-  // .example-container{
-  //   background-color: rgba(135, 207, 235, 0.322);
-  // }
+
   .example-table-container {
     position: relative;
     max-height: 270px;
     overflow: auto;
   }
 
+  .editbutton{
+  color: #5edfff;
+  }
+  .invoiceTooltip{
+    background-color: #3f51b5;
+  }
+ .editTooltip{
+  background-color: #5edfff;
+ }
+ .deleteTooltip{
+  background: #b71c1c;
+ }
   // .example-loading-shade {
   //   position: absolute;
   //   top: 0;

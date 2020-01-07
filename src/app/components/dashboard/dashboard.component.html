@@ -4,7 +4,7 @@
     <span class="nav-tool-items">
         <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
     </span>
-</mat-toolbar>
+</mat-toolbar>  
 <mat-sidenav-container>
     <!-- Sidenav -->
     <mat-sidenav  #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
@@ -13,10 +13,10 @@
             <!-- <div>
                 <p>www.logipool.in</p>
             </div> -->
-            <a mat-list-item routerLinkActive="active"  routerLink="/addemployee">
+            <a mat-list-item routerLinkActive="active"  routerLink="/dashboard/invoiceform/create">
                 <mat-icon >add</mat-icon> Add Vender
             </a>
-            <a mat-list-item routerLinkActive="active"  routerLink="/viewemployee">
+            <a mat-list-item routerLinkActive="active"  routerLink="/dashboard/invoicemaster">
                 <mat-icon>format_list_bulleted</mat-icon> View Vender
             </a>
         </mat-nav-list>

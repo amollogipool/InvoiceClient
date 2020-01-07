@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -8,11 +8,17 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-
+  id: any;
   routeLinks: any[];
   activeLinkIndex = -1;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+
+    this.activatedRoute.params.subscribe(param => {
+      if (param['id']) {
+        this.id = param['id'];
+      }
+    })
    
     this.routeLinks = [
       {     

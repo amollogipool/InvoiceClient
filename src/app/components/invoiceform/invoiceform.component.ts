@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from "@angular/forms";
 import { Location, DatePipe } from '@angular/common';
@@ -7,12 +7,13 @@ import { InvoiceService } from 'src/app/services/invoice.service';
 @Component({
   selector: 'app-invoiceform',
   templateUrl: './invoiceform.component.html',
-  styleUrls: ['./invoiceform.component.scss']
+  styleUrls: ['./invoiceform.component.scss'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class InvoiceformComponent implements OnInit {
 
   method = 'create';
-  vendorid : any;
+  vendorid: any;
 
   invoiceForm: any = {
     id: null,
@@ -24,15 +25,13 @@ export class InvoiceformComponent implements OnInit {
     gstno: null,
     address: null,
     itemArray: null,
-
-    // item: null,
-    // description: null,
-    // price: null,
-    // qty: null,
-    // discount: null,
-    // amount: null,
-  
-    subtotal:null,
+    item: null,
+    description: null,
+    price: null,
+    qty: null,
+    discount: null,
+    amount: null,
+    subtotal: null,
     sgst: null,
     cgst: null,
     amttax: null,
@@ -58,25 +57,7 @@ export class InvoiceformComponent implements OnInit {
 
   private fieldArray: Array<any> = [];
   private newAttribute: any = {};
-  // VendorName: null,
-  // Email: null,
-  // Phno: null,
-  // Panno: null,
-  // Gstno: null,
-  // Address: null,
-  // Item: null,
-  // Description,
-  // price: null,
-  // qty: null,
-  // discount: null,
-  // amount: null,
-  // sgst: null,
-  // cgst: null,
-  // amttax: null,
-  // paymthd: null,
-  // issuedate: null,
-  // duedate: null,
-  // paid: null
+
 
   VendorName = new FormControl([Validators.required]);
   Email = new FormControl([Validators.required]);
@@ -99,6 +80,8 @@ export class InvoiceformComponent implements OnInit {
   DueDate = new FormControl([Validators.required]);
   Paid = new FormControl([Validators.required]);
 
+
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private invoiceService: InvoiceService, private location: Location, public datepipe: DatePipe) {
     this.activatedRoute.params.subscribe(param => {
       if (param['method']) {
@@ -111,15 +94,41 @@ export class InvoiceformComponent implements OnInit {
         this.getVenderInvoiceById(this.vendorid);
       }
     })
+
+    if (this.newAttribute.amount != true) {
+      // this.Amount.disable();
+    }
+
   }
 
+  // calculateAmount(itemData) {
+  //   for (let i = 0; i < itemData.length; i++) {
+  //     itemData[i].amount = (itemData[i].price * itemData[i].qty) - itemData[i].discount;
+  //     this.itemData.amount = itemData[i].amount;
+  //     this.subtotalAmount+=itemData[i].amount;
+  //   }
+  // }
+
+  // getAmount() {
+  //   this.invoiceForm.itemArray.amount = (this.invoiceForm.itemArray.price * this.invoiceForm.itemArray.qty) - this.invoiceForm.itemArray.discount;
+  //   this.invoiceForm.amount = (this.invoiceForm.itemArray.price * this.invoiceForm.itemArray.qty) - this.invoiceForm.itemArray.discount;
+  // }
+
   addFieldValue() {
-      this.fieldArray.push(this.newAttribute)
-      this.newAttribute = {};
+    this.newAttribute.amount = (this.newAttribute.price * this.newAttribute.qty) - this.newAttribute.discount;
+    console.log("The amount is:", this.newAttribute);
+    if (this.newAttribute.amount == 'NaN') {
+      this.newAttribute.amount = '';
+    }
+    this.fieldArray.push(this.newAttribute)
+    this.newAttribute.method='';
+    this.newAttribute = {};
+    this.invoiceForm.itemArray = this.fieldArray;
+    console.log(this.invoiceForm.itemArray);
   }
 
   deleteFieldValue(index) {
-     this.fieldArray.splice(index, 1);
+    this.fieldArray.splice(index, 1);
   }
   /**
 * getInventoryById() function to edit card 
@@ -147,55 +156,44 @@ export class InvoiceformComponent implements OnInit {
     this.Amount.disable();
     this.Sgst.disable();
     this.Cgst.disable();
-    // Amttax = new FormControl([Validators.required]);
     this.Paymthd.disable();
     this.IssueDate.disable();
     this.DueDate.disable();
     this.Paid.disable();
   }
-  getAmount() {
-    // this.Amount=(this.Price*this.Qty)-this.Discount;
-    this.invoiceForm.amount = (this.invoiceForm.price * this.invoiceForm.qty) - this.invoiceForm.discount;
-  }
-
-  getAmountWithTax() {
-    // this.Amttax=this.Amount+(this.Amount*(this.Sgst/100))+(this.Amount*(this.Cgst/100));
-    this.invoiceForm.amttax = this.invoiceForm.amount + (this.invoiceForm.amount * (this.invoiceForm.sgst / 100)) + (this.invoiceForm.amount * (this.invoiceForm.cgst / 100));
-  }
 
   submit() {
     this.invoiceForm.issuedate = this.datepipe.transform(this.invoiceForm.issuedate, 'yyyy-MM-dd');
     this.invoiceForm.duedate = this.datepipe.transform(this.invoiceForm.duedate, 'yyyy-MM-dd');
-    this.getAmount();
-    this.getAmountWithTax();
     if (this.VendorName.valid && this.Email.valid && this.PhNo.valid && this.PanNo.valid && this.GstNo.valid && this.Address.valid && this.Item.valid && this.Description.valid
       && this.Price.valid && this.Qty.valid && this.Discount.valid && this.Amount.valid && this.Sgst.valid && this.Cgst.valid && this.Paymthd.valid, this.IssueDate.valid, this.DueDate.valid, this.Paid.valid) {
       if (this.method == 'edit') {
         //update API
-        this.invoiceService.updateVenderById(this.invoiceForm).subscribe(res => {
+        this.invoiceService.addNewInvoiceByVendorId(this.invoiceForm).subscribe(res => {
           if (!res.error) {
-            alert('Vendor Updated Successfully');
+            alert('Invoive Created  Successfully');
             this.location.back();
           }
         },
           error => {
-            alert('Oops! Something went wrong, Record has been not updated');
+            alert('Oops! Something went wrong, Invoice has been not created');
             console.log(error);
           });
       }
       if (this.method == 'create') {
         //Create API.
         this.invoiceForm.itemArray = this.fieldArray;
+        console.log(this.invoiceForm);
         this.invoiceService.addNewInvoice(this.invoiceForm).subscribe(res => {
           if (!res.error) {
-            alert('Vendor Created Successfully');
+            alert('Customer Created Successfully');
             console.log(this.invoiceForm);
             // console.log("field array",this.fieldArray);
             this.location.back();
           }
         },
           error => {
-            alert('API error while creating Employee!');
+            alert('API error while creating Customer!');
             console.log(error);
           });
       }
@@ -221,5 +219,4 @@ export class InvoiceformComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
